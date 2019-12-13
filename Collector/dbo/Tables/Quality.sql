@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Quality]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Quality] VARCHAR(50) NOT NULL
+)
