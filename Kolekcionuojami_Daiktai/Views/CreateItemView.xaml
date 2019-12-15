@@ -1,12 +1,48 @@
-﻿<UserControl x:Class="Kolekcionuojami_Daiktai.Views.CreateItemView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Kolekcionuojami_Daiktai.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+﻿<UserControl
+    x:Class="Kolekcionuojami_Daiktai.Views.CreateItemView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Kolekcionuojami_Daiktai.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Background="{StaticResource MaterialDesignLightBackground}"
+    mc:Ignorable="d">
     <Grid>
-            
+        <StackPanel
+            Width="300"
+            Margin="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <TextBlock Margin="5" Text="Name" />
+            <TextBox Margin="5" Text="{Binding Item.Name, Mode=TwoWay}" />
+            <TextBlock Margin="5" Text="Date" />
+            <DatePicker SelectedDate="{Binding Item.Date, Mode=TwoWay}" />
+            <TextBlock Margin="5" Text="Quality" />
+            <ComboBox ItemsSource="{Binding Qualities, Mode=TwoWay}" SelectedItem="{Binding SelectedQuality, Mode=TwoWay}" />
+            <TextBlock Margin="5" Text="Estimated Cost" />
+            <TextBox Text="{Binding Item.EstimatedPrice, Mode=TwoWay}" />
+            <TextBlock Margin="5" Text="Stock ID" />
+            <TextBox Text="{Binding Item.StockId, Mode=TwoWay}" />
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Button
+                    x:Name="SubmitButton"
+                    Width="130"
+                    Margin="10"
+                    Content="Submit" />
+
+                <Button
+                    x:Name="CancelButton"
+                    Width="80"
+                    Background="{Binding null}"
+                    Content="Cancel"
+                    Foreground="Black" />
+            </StackPanel>
+
+        </StackPanel>
     </Grid>
 </UserControl>

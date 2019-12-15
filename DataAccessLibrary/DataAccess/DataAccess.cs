@@ -24,13 +24,11 @@ namespace DataAccessLibrary.DataAccess
             }
         }
 
-        public static int SaveData<T>(string sql, T data)
+        public static void SaveData<T>(string sql, T data)
         {
             using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
             {
-                var response = cnn.Query<int>(sql, data).Single();
-                return response;
-                throw new Exception("Unexpected error while writing data");
+                cnn.Query(sql, data);
             }
         }
 

@@ -89,14 +89,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModels\CreateItemViewModel.cs" />
-    <Compile Include="ViewModels\CreateQualityViewModel.cs" />
+    <Compile Include="ViewModels\FilterViewModel.cs" />
     <Compile Include="ViewModels\ItemsDisplayViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\CreateItemView.xaml.cs">
       <DependentUpon>CreateItemView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CreateQualityView.xaml.cs">
-      <DependentUpon>CreateQualityView.xaml</DependentUpon>
+    <Compile Include="Views\FilterView.xaml.cs">
+      <DependentUpon>FilterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ItemsDisplayView.xaml.cs">
       <DependentUpon>ItemsDisplayView.xaml</DependentUpon>
@@ -141,7 +141,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CreateQualityView.xaml">
+    <Page Include="Views\FilterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,6 +153,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataHandlerLibrary\DataHandlerLibrary.csproj">
+      <Project>{6978fc0c-7396-4b99-bb10-d5650f96ad2a}</Project>
+      <Name>DataHandlerLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

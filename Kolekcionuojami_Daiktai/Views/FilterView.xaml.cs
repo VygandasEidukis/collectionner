@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Kolekcionuojami_Daiktai.Views
 {
     /// <summary>
-    /// Interaction logic for CreateQualityView.xaml
+    /// Interaction logic for FilterView.xaml
     /// </summary>
-    public partial class CreateQualityView : UserControl
+    public partial class FilterView : UserControl
     {
-        public CreateQualityView()
+        public FilterView()
         {
             InitializeComponent();
         }

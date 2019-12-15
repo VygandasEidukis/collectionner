@@ -13,7 +13,30 @@ namespace DataHandlerLibrary.Collectionner.Models
         public string Name { get; set; }
         public DateTime Date { get; set; }
         public int QualityId { get; set; }
-        public int StockId { get; set; }
+        public string StockId { get; set; }
+        public float EstimatedPrice { get; set; }
         public string Quality { get; set; }
+
+        public ItemModel()
+        {
+            Date = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
+        }
+
+        public bool IsValid()
+        {
+            //if doesn't have name
+            if (String.IsNullOrEmpty(Name)) return false;
+            //if doesn't have in stock
+            if (String.IsNullOrEmpty(StockId)) return false;
+            //if price isn't set
+            if (EstimatedPrice == 0) return false;
+
+            return true;
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

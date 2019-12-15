@@ -9,7 +9,7 @@ namespace DataHandlerLibrary.Collectionner.DataAccessInterface
 {
     interface IItemWriteData
     {
-        void CreateNewItem(ItemModel item);
+        bool CreateNewItem(ItemModel item, QualityModel quality);
         void CreateNewQuality(string quality);
     }
 }

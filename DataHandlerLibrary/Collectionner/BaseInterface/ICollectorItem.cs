@@ -12,6 +12,7 @@ namespace DataHandlerLibrary.Collectionner.BaseInterface
         string Name { get; set; }
         DateTime Date { get; set; }
         int QualityId { get; set; }
-        int StockId { get; set; }
+        string StockId { get; set; }
+        float EstimatedPrice { get; set; }
     }
 }

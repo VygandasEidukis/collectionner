@@ -7,7 +7,7 @@ using Caliburn.Micro;
 
 namespace Kolekcionuojami_Daiktai.ViewModels
 {
-    public class CreateQualityViewModel :Screen
+    public class FilterViewModel : Screen
     {
     }
 }
