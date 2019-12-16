@@ -22,6 +22,38 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 Orientation="Horizontal">
+                <Button
+                    x:Name="HomeButton"
+                    Margin="5,0,0,0"
+                    HorizontalAlignment="Right">
+                    <Button.Content>
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <MD:PackIcon
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Kind="Home" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button
+                    x:Name="FilterButton"
+                    Margin="5,0"
+                    HorizontalAlignment="Right">
+                    <Button.Content>
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <MD:PackIcon
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Kind="Filter" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
                 <Button x:Name="AddItemButton" HorizontalAlignment="Left">
                     <Button.Content>
                         <StackPanel
@@ -36,27 +68,11 @@
                         </StackPanel>
                     </Button.Content>
                 </Button>
-                <Button
-                    x:Name="FilterButton"
-                    Margin="5,0,0,0"
-                    HorizontalAlignment="Right">
-                    <Button.Content>
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal">
-                            <MD:PackIcon
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Kind="Filter" />
-                        </StackPanel>
-                    </Button.Content>
-                </Button>
             </StackPanel>
             <StackPanel
+                Margin="0,0,10,0"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Margin="0,0,10,0"
                 Orientation="Horizontal">
                 <TextBlock Text="Price: " />
                 <TextBlock Text="{Binding TotalPrice, Mode=TwoWay}" />

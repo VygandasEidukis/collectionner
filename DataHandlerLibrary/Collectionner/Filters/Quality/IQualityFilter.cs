@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataHandlerLibrary.Collectionner.Filters.Quality
 {
-    interface IQualityFilter
+    interface IQualityFilter : IBaseFilter
     {
         List<QualityModel> Qualities { get; set; }
-
-        List<ItemModel> FilterItems(List<QualityModel> qualities);
     }
 }

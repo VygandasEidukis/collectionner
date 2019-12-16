@@ -11,7 +11,5 @@ namespace DataHandlerLibrary.Collectionner.Filters.Date
     {
         DateTime OldestDate { get; set; }
         DateTime LatestDate { get; set; }
-
-        List<ItemModel> FilterItems(DateTime LatestDate, DateTime OldestDate);
     }
 }

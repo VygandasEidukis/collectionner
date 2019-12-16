@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataHandlerLibrary.Collectionner.Filters.Money
+namespace Kolekcionuojami_Daiktai.Models
 {
-    interface IPriceLessThanFilter : IBaseFilter
+    public class TreeViewQualityModel
     {
-        float MaxPrice { get; set; }
-
+        public bool Checked { get; set; }
+        public QualityModel Quality { get; set; }
     }
 }

@@ -11,7 +11,5 @@ namespace DataHandlerLibrary.Collectionner.Filters.Money
     {
         float MinPrice { get; set; }
         float MaxPrice { get; set; }
-
-        List<ItemModel> FilterItems(float MinPrice, float MaxPrice);
     }
 }

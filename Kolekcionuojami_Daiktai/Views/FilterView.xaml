@@ -10,14 +10,18 @@
     Background="{StaticResource MaterialDesignLightBackground}"
     mc:Ignorable="d">
     <Grid>
-        <TreeView>
-            <TreeViewItem Header="Price">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <TreeView Grid.Row="0">
+            <TreeViewItem x:Name="PriceTreeItem" Header="Price">
                 <TreeViewItem x:Name="PriceBetweenFilter">
                     <TreeViewItem.Template>
                         <ControlTemplate>
                             <Grid>
                                 <StackPanel Margin="5" Orientation="Horizontal">
-                                    <CheckBox x:Name="ItemChecked" />
+                                    <CheckBox x:Name="PriceBetweenCheckbox" IsChecked="{Binding PriceBetweenCheckbox, Mode=TwoWay}" />
                                     <TextBlock
                                         x:Name="PriceBetween"
                                         Margin="5,0,0,0"
@@ -29,9 +33,15 @@
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Center"
                                     Orientation="Horizontal">
-                                    <TextBox x:Name="MinPrice" Width="50" />
+                                    <TextBox
+                                        x:Name="MinPrice"
+                                        Width="50"
+                                        Text="{Binding PriceBetweenFilterHandler.MinPrice, Mode=TwoWay}" />
                                     <TextBlock Margin="5,0" Text="-" />
-                                    <TextBox x:Name="MaxPrice" Width="50" />
+                                    <TextBox
+                                        x:Name="MaxPrice"
+                                        Width="50"
+                                        Text="{Binding PriceBetweenFilterHandler.MaxPrice, Mode=TwoWay}" />
                                 </StackPanel>
                             </Grid>
                         </ControlTemplate>
@@ -42,7 +52,7 @@
                         <ControlTemplate>
                             <Grid>
                                 <StackPanel Margin="5" Orientation="Horizontal">
-                                    <CheckBox x:Name="ItemChecked" />
+                                    <CheckBox x:Name="PriceMoreThanCheckBox" IsChecked="{Binding PriceMoreThanCheckBox, Mode=TwoWay}" />
                                     <TextBlock
                                         x:Name="PriceMoreThan"
                                         Margin="5,0,0,0"
@@ -54,7 +64,10 @@
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Center"
                                     Orientation="Horizontal">
-                                    <TextBox x:Name="MinPrice" Width="50" />
+                                    <TextBox
+                                        x:Name="MinPrice"
+                                        Width="50"
+                                        Text="{Binding PriceMoreThanFilterHandler.MinPrice, Mode=TwoWay}" />
                                 </StackPanel>
                             </Grid>
                         </ControlTemplate>
@@ -65,32 +78,31 @@
                         <ControlTemplate>
                             <Grid>
                                 <StackPanel Margin="5" Orientation="Horizontal">
-                                    <CheckBox x:Name="ItemChecked" />
+                                    <CheckBox x:Name="PriceLessThanCheckBox" IsChecked="{Binding PriceLessThanCheckBox, Mode=TwoWay}" />
                                     <TextBlock
                                         x:Name="Name"
                                         Margin="5,0,0,0"
                                         Text="Price less than" />
 
                                 </StackPanel>
-                                <StackPanel
+                                <TextBox
+                                    x:Name="MaxPrice"
+                                    Width="50"
                                     Margin="10,0"
                                     HorizontalAlignment="Right"
-                                    VerticalAlignment="Center"
-                                    Orientation="Horizontal">
-                                    <TextBox x:Name="MaxPrice" Width="50" />
-                                </StackPanel>
+                                    Text="{Binding PriceLessThanFilterHandler.MaxPrice, Mode=TwoWay}" />
                             </Grid>
                         </ControlTemplate>
                     </TreeViewItem.Template>
                 </TreeViewItem>
             </TreeViewItem>
-            <TreeViewItem Header="Date">
+            <TreeViewItem x:Name="DateTreeItem" Header="Date">
                 <TreeViewItem x:Name="DateBetween">
                     <TreeViewItem.Template>
                         <ControlTemplate>
                             <Grid>
                                 <StackPanel Margin="5" Orientation="Horizontal">
-                                    <CheckBox x:Name="ItemChecked" />
+                                    <CheckBox x:Name="DateBetweenCheckbox" IsChecked="{Binding DateBetweenCheckbox, Mode=TwoWay}" />
                                     <TextBlock Margin="5,0,0,0" Text="Date Between" />
                                 </StackPanel>
                                 <StackPanel
@@ -98,9 +110,15 @@
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Center"
                                     Orientation="Horizontal">
-                                    <DatePicker x:Name="MinDate" Width="150" />
+                                    <DatePicker
+                                        x:Name="MinDate"
+                                        Width="150"
+                                        SelectedDate="{Binding DateBetweenFilterHandler.LatestDate, Mode=TwoWay}" />
                                     <TextBlock Margin="5,0" Text="-" />
-                                    <DatePicker x:Name="MaxDate" Width="150" />
+                                    <DatePicker
+                                        x:Name="MaxDate"
+                                        Width="150"
+                                        SelectedDate="{Binding DateBetweenFilterHandler.OldestDate, Mode=TwoWay}" />
                                 </StackPanel>
                             </Grid>
                         </ControlTemplate>
@@ -111,7 +129,7 @@
                         <ControlTemplate>
                             <Grid>
                                 <StackPanel Margin="5" Orientation="Horizontal">
-                                    <CheckBox x:Name="ItemChecked" />
+                                    <CheckBox x:Name="DateOlderThanCheckbox" IsChecked="{Binding DateOlderThanCheckbox, Mode=TwoWay}" />
                                     <TextBlock Margin="5,0,0,0" Text="Date Older" />
                                 </StackPanel>
                                 <StackPanel
@@ -119,7 +137,10 @@
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Center"
                                     Orientation="Horizontal">
-                                    <DatePicker x:Name="OlderThan" Width="150" />
+                                    <DatePicker
+                                        x:Name="OlderThan"
+                                        Width="150"
+                                        SelectedDate="{Binding DateOlderThanFilterHandler.LatestDate, Mode=TwoWay}" />
                                 </StackPanel>
                             </Grid>
                         </ControlTemplate>
@@ -130,7 +151,7 @@
                         <ControlTemplate>
                             <Grid>
                                 <StackPanel Margin="5" Orientation="Horizontal">
-                                    <CheckBox x:Name="ItemChecked" />
+                                    <CheckBox x:Name="DateNewerThanCheckbox" IsChecked="{Binding DateNewerThanCheckbox, Mode=TwoWay}" />
                                     <TextBlock Margin="5,0,0,0" Text="Date Newer" />
                                 </StackPanel>
                                 <StackPanel
@@ -138,28 +159,42 @@
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Center"
                                     Orientation="Horizontal">
-                                    <DatePicker x:Name="NewerThan" Width="150" />
+                                    <DatePicker
+                                        x:Name="NewerThan"
+                                        Width="150"
+                                        SelectedDate="{Binding DateNewerThanFilterHandler.LatestDate, Mode=TwoWay}" />
                                 </StackPanel>
                             </Grid>
                         </ControlTemplate>
                     </TreeViewItem.Template>
                 </TreeViewItem>
             </TreeViewItem>
-            <TreeViewItem Header="Quality" ItemsSource="{Binding Qualities, Mode=TwoWay}">
-                <TreeViewItem.Template>
-                    <ControlTemplate>
+            <TreeViewItem
+                x:Name="QualityTreeItem"
+                Header="Quality"
+                ItemsSource="{Binding Qualities, Mode=TwoWay}">
+                <TreeViewItem.ItemTemplate>
+                    <DataTemplate>
                         <Grid>
                             <StackPanel Margin="5" Orientation="Horizontal">
-                                <CheckBox x:Name="ItemChecked" />
+                                <CheckBox x:Name="Checked" IsChecked="{Binding Checked, Mode=TwoWay}" />
                                 <TextBlock
                                     x:Name="Quality"
                                     Margin="5,0,0,0"
-                                    Text="{Binding Quality, Mode=TwoWay}" />
+                                    Text="{Binding Quality.Quality, Mode=TwoWay}" />
                             </StackPanel>
                         </Grid>
-                    </ControlTemplate>
-                </TreeViewItem.Template>
+                    </DataTemplate>
+                </TreeViewItem.ItemTemplate>
             </TreeViewItem>
         </TreeView>
+        <Grid Grid.Row="1">
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Button x:Name="SaveButton" Content="save" />
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

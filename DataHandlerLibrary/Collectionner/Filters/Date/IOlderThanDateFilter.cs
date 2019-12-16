@@ -10,7 +10,5 @@ namespace DataHandlerLibrary.Collectionner.Filters.Date
     interface IOlderThanDateFilter : IBaseFilter
     {
         DateTime LatestDate { get; set; }
-
-        List<ItemModel> FilterItems(DateTime LatestDate);
     }
 }

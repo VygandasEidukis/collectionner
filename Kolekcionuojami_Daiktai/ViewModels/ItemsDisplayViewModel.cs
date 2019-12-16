@@ -46,6 +46,12 @@ namespace Kolekcionuojami_Daiktai.ViewModels
             LoadData();
         }
 
+        public ItemsDisplayViewModel(List<ItemModel> items)
+        {
+            Items = new BindableCollection<ItemModel>();
+            Items.AddRange(items);
+        }
+
         public void Loaded()
         {
             TotalSum?.Invoke(Total);
