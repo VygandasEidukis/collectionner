@@ -95,6 +95,37 @@
                         </ControlTemplate>
                     </TreeViewItem.Template>
                 </TreeViewItem>
+                <TreeViewItem x:Name="PriceMedian">
+                    <TreeViewItem.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <StackPanel Margin="5" Orientation="Horizontal">
+                                    <CheckBox x:Name="PriceMoreThanMedianCheckbox" IsChecked="{Binding PriceMedianCheckbox, Mode=TwoWay}" />
+                                    <TextBlock
+                                        x:Name="Name"
+                                        Margin="5,0,0,0"
+                                        Text="Price median" />
+
+
+                                </StackPanel>
+                                <StackPanel
+                                    Margin="5,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+                                    <RadioButton
+                                        Margin="5,0"
+                                        Content="More than median"
+                                        IsChecked="{Binding MoreThanMedianRadio, Mode=TwoWay}" />
+                                    <RadioButton
+                                        Margin="5,0"
+                                        Content="Less than median"
+                                        IsChecked="{Binding LessThanMedianRadio, Mode=TwoWay}" />
+                                </StackPanel>
+                            </Grid>
+                        </ControlTemplate>
+                    </TreeViewItem.Template>
+                </TreeViewItem>
             </TreeViewItem>
             <TreeViewItem x:Name="DateTreeItem" Header="Date">
                 <TreeViewItem x:Name="DateBetween">

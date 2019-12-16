@@ -35,6 +35,32 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         }
 
         #region price filter handlers
+        private bool _MoreThanMedianRadio;
+
+        public bool MoreThanMedianRadio
+        {
+            get { return _MoreThanMedianRadio; }
+            set 
+            {
+                _MoreThanMedianRadio = value;
+                NotifyOfPropertyChange(() => MoreThanMedianRadio);
+            }
+        }
+
+        private bool _LessThanMedianRadio;
+
+        public bool LessThanMedianRadio
+        {
+            get { return _LessThanMedianRadio; }
+            set 
+            {
+                _LessThanMedianRadio = value;
+                NotifyOfPropertyChange(() => LessThanMedianRadio);
+            }
+        }
+
+
+
 
         private PriceBetweenFilter _PriceBetweenFilterHandler;
         public PriceBetweenFilter PriceBetweenFilterHandler
@@ -105,6 +131,19 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         #endregion
 
         #region CheckBoxes
+        private bool _PriceMedianCheckbox;
+
+        public bool PriceMedianCheckbox
+        {
+            get { return _PriceMedianCheckbox; }
+            set 
+            {
+                _PriceMedianCheckbox = value;
+                NotifyOfPropertyChange(() => PriceMedianCheckbox);
+            }
+        }
+
+
         private bool _PriceBetweenCheckbox;
 
         public bool PriceBetweenCheckbox
@@ -199,6 +238,7 @@ namespace Kolekcionuojami_Daiktai.ViewModels
 
         private void LoadData()
         {
+            LessThanMedianRadio = true;
             Qualities = new BindableCollection<TreeViewQualityModel>();
 
             var qualities = QualityReadLogic.ReadQualities();
@@ -238,8 +278,51 @@ namespace Kolekcionuojami_Daiktai.ViewModels
                 if (quality.Checked)
                     selectedQualities.Add(quality.Quality);
             }
+            var items = FilterHelper.ApplyFilter(filters, selectedQualities);
+            return FilterMedian(items);
+        }
 
-            return FilterHelper.ApplyFilter(filters, selectedQualities);
+        private List<ItemModel> FilterMedian(List<ItemModel> items)
+        {
+            var median = GetMedian(new ItemReadLogic().ReadItems());
+            if (PriceMedianCheckbox)
+            {
+                var itemsToRemove = new List<ItemModel>();
+                foreach (var item in items)
+                {
+                    if (LessThanMedianRadio)
+                    {
+                        if (item.EstimatedPrice > median)
+                        {
+                            itemsToRemove.Add(item);
+                        }
+                    }
+                    else if (MoreThanMedianRadio)
+                    {
+                        if (item.EstimatedPrice < median)
+                        {
+                            itemsToRemove.Add(item);
+                        }
+                    }
+                }
+                foreach (var item in itemsToRemove)
+                {
+                    items.Remove(item);
+                }
+            }
+
+
+            return items;
+        }
+
+        private float GetMedian(List<ItemModel> items)
+        {
+            float max = 0;
+            foreach(var item in items)
+            {
+                max += item.EstimatedPrice;
+            }
+            return max / items.Count;
         }
     }
 }
