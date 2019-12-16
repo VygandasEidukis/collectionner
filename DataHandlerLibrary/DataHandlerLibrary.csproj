@@ -47,6 +47,14 @@
     <Compile Include="Collectionner\DataAccessInterface\IItemFilterData.cs" />
     <Compile Include="Collectionner\DataAccessInterface\IItemReadData.cs" />
     <Compile Include="Collectionner\DataAccessInterface\IItemWriteData.cs" />
+    <Compile Include="Collectionner\Filters\Date\IBetweenDateFilter.cs" />
+    <Compile Include="Collectionner\Filters\Date\INewerThanDateFliter.cs" />
+    <Compile Include="Collectionner\Filters\Date\IOlderThanDateFilter.cs" />
+    <Compile Include="Collectionner\Filters\IBaseFilter.cs" />
+    <Compile Include="Collectionner\Filters\Money\IPriceBetweenFilter.cs" />
+    <Compile Include="Collectionner\Filters\Money\IPriceLessThanFilter.cs" />
+    <Compile Include="Collectionner\Filters\Money\IPriceMoreThanFilter.cs" />
+    <Compile Include="Collectionner\Filters\Quality\IQualityFilter.cs" />
     <Compile Include="Collectionner\Logic\ItemReadLogic.cs" />
     <Compile Include="Collectionner\Logic\ItemWriteLogic.cs" />
     <Compile Include="Collectionner\Logic\QualityReadLogic.cs" />

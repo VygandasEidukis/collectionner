@@ -9,5 +9,157 @@
     d:DesignWidth="800"
     Background="{StaticResource MaterialDesignLightBackground}"
     mc:Ignorable="d">
-    <Grid />
+    <Grid>
+        <TreeView>
+            <TreeViewItem Header="Price">
+                <TreeViewItem x:Name="PriceBetweenFilter">
+                    <TreeViewItem.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <StackPanel Margin="5" Orientation="Horizontal">
+                                    <CheckBox x:Name="ItemChecked" />
+                                    <TextBlock
+                                        x:Name="PriceBetween"
+                                        Margin="5,0,0,0"
+                                        Text="Price between" />
+
+                                </StackPanel>
+                                <StackPanel
+                                    Margin="10,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+                                    <TextBox x:Name="MinPrice" Width="50" />
+                                    <TextBlock Margin="5,0" Text="-" />
+                                    <TextBox x:Name="MaxPrice" Width="50" />
+                                </StackPanel>
+                            </Grid>
+                        </ControlTemplate>
+                    </TreeViewItem.Template>
+                </TreeViewItem>
+                <TreeViewItem x:Name="PriceMoreThanFilter">
+                    <TreeViewItem.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <StackPanel Margin="5" Orientation="Horizontal">
+                                    <CheckBox x:Name="ItemChecked" />
+                                    <TextBlock
+                                        x:Name="PriceMoreThan"
+                                        Margin="5,0,0,0"
+                                        Text="Price more than" />
+
+                                </StackPanel>
+                                <StackPanel
+                                    Margin="10,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+                                    <TextBox x:Name="MinPrice" Width="50" />
+                                </StackPanel>
+                            </Grid>
+                        </ControlTemplate>
+                    </TreeViewItem.Template>
+                </TreeViewItem>
+                <TreeViewItem x:Name="PriceLessThanFilter">
+                    <TreeViewItem.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <StackPanel Margin="5" Orientation="Horizontal">
+                                    <CheckBox x:Name="ItemChecked" />
+                                    <TextBlock
+                                        x:Name="Name"
+                                        Margin="5,0,0,0"
+                                        Text="Price less than" />
+
+                                </StackPanel>
+                                <StackPanel
+                                    Margin="10,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+                                    <TextBox x:Name="MaxPrice" Width="50" />
+                                </StackPanel>
+                            </Grid>
+                        </ControlTemplate>
+                    </TreeViewItem.Template>
+                </TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="Date">
+                <TreeViewItem x:Name="DateBetween">
+                    <TreeViewItem.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <StackPanel Margin="5" Orientation="Horizontal">
+                                    <CheckBox x:Name="ItemChecked" />
+                                    <TextBlock Margin="5,0,0,0" Text="Date Between" />
+                                </StackPanel>
+                                <StackPanel
+                                    Margin="10,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+                                    <DatePicker x:Name="MinDate" Width="150" />
+                                    <TextBlock Margin="5,0" Text="-" />
+                                    <DatePicker x:Name="MaxDate" Width="150" />
+                                </StackPanel>
+                            </Grid>
+                        </ControlTemplate>
+                    </TreeViewItem.Template>
+                </TreeViewItem>
+                <TreeViewItem x:Name="DateOlderThan">
+                    <TreeViewItem.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <StackPanel Margin="5" Orientation="Horizontal">
+                                    <CheckBox x:Name="ItemChecked" />
+                                    <TextBlock Margin="5,0,0,0" Text="Date Older" />
+                                </StackPanel>
+                                <StackPanel
+                                    Margin="10,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+                                    <DatePicker x:Name="OlderThan" Width="150" />
+                                </StackPanel>
+                            </Grid>
+                        </ControlTemplate>
+                    </TreeViewItem.Template>
+                </TreeViewItem>
+                <TreeViewItem x:Name="DateNewerThan">
+                    <TreeViewItem.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <StackPanel Margin="5" Orientation="Horizontal">
+                                    <CheckBox x:Name="ItemChecked" />
+                                    <TextBlock Margin="5,0,0,0" Text="Date Newer" />
+                                </StackPanel>
+                                <StackPanel
+                                    Margin="10,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+                                    <DatePicker x:Name="NewerThan" Width="150" />
+                                </StackPanel>
+                            </Grid>
+                        </ControlTemplate>
+                    </TreeViewItem.Template>
+                </TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="Quality" ItemsSource="{Binding Qualities, Mode=TwoWay}">
+                <TreeViewItem.Template>
+                    <ControlTemplate>
+                        <Grid>
+                            <StackPanel Margin="5" Orientation="Horizontal">
+                                <CheckBox x:Name="ItemChecked" />
+                                <TextBlock
+                                    x:Name="Quality"
+                                    Margin="5,0,0,0"
+                                    Text="{Binding Quality, Mode=TwoWay}" />
+                            </StackPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </TreeViewItem.Template>
+            </TreeViewItem>
+        </TreeView>
+    </Grid>
 </UserControl>
