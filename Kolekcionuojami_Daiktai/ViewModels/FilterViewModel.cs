@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Caliburn.Micro;
+﻿using Caliburn.Micro;
+using DataHandlerLibrary.Collectionner.Filters;
+using DataHandlerLibrary.Collectionner.Filters.Date;
+using DataHandlerLibrary.Collectionner.Filters.Money;
 using DataHandlerLibrary.Collectionner.Logic;
 using DataHandlerLibrary.Collectionner.Models;
 using Kolekcionuojami_Daiktai.Models;
-using DataHandlerLibrary.Collectionner.Filters;
-using DataHandlerLibrary.Collectionner.Filters.Money;
-using DataHandlerLibrary.Collectionner.Filters.Date;
-using DataHandlerLibrary.Collectionner.Filters.Quality;
+using System.Collections.Generic;
 
 namespace Kolekcionuojami_Daiktai.ViewModels
 {
@@ -27,8 +22,8 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         public BindableCollection<TreeViewQualityModel> Qualities
         {
             get { return _Qualities; }
-            set 
-            { 
+            set
+            {
                 _Qualities = value;
                 NotifyOfPropertyChange(() => Qualities);
             }
@@ -40,7 +35,7 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         public bool MoreThanMedianRadio
         {
             get { return _MoreThanMedianRadio; }
-            set 
+            set
             {
                 _MoreThanMedianRadio = value;
                 NotifyOfPropertyChange(() => MoreThanMedianRadio);
@@ -52,7 +47,7 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         public bool LessThanMedianRadio
         {
             get { return _LessThanMedianRadio; }
-            set 
+            set
             {
                 _LessThanMedianRadio = value;
                 NotifyOfPropertyChange(() => LessThanMedianRadio);
@@ -66,8 +61,8 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         public PriceBetweenFilter PriceBetweenFilterHandler
         {
             get { return _PriceBetweenFilterHandler; }
-            set 
-            { 
+            set
+            {
                 _PriceBetweenFilterHandler = value;
                 NotifyOfPropertyChange(() => PriceBetweenFilterHandler);
             }
@@ -76,8 +71,8 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         public PriceMoreThanFilter PriceMoreThanFilterHandler
         {
             get { return _PriceMoreThanFilterHandler; }
-            set 
-            { 
+            set
+            {
                 _PriceMoreThanFilterHandler = value;
                 NotifyOfPropertyChange(() => PriceMoreThanFilterHandler);
 
@@ -88,7 +83,7 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         {
             get { return _PriceLessThanFilterHandler; }
             set
-            { 
+            {
                 _PriceLessThanFilterHandler = value;
                 NotifyOfPropertyChange(() => PriceLessThanFilterHandler);
             }
@@ -102,8 +97,8 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         public DateBetweenFilter DateBetweenFilterHandler
         {
             get { return _DateBetweenFilterHandler; }
-            set 
-            { 
+            set
+            {
                 _DateBetweenFilterHandler = value;
                 NotifyOfPropertyChange(() => DateBetweenFilterHandler);
             }
@@ -112,17 +107,17 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         public DateNewerThanFilter DateNewerThanFilterHandler
         {
             get { return _DateNewerThanFilterHandler; }
-            set 
-            { 
+            set
+            {
                 _DateNewerThanFilterHandler = value;
-                NotifyOfPropertyChange(()=>DateNewerThanFilterHandler);
+                NotifyOfPropertyChange(() => DateNewerThanFilterHandler);
             }
         }
         private DateOlderThanFilter _DateOlderThanFilterHandler;
         public DateOlderThanFilter DateOlderThanFilterHandler
         {
             get { return _DateOlderThanFilterHandler; }
-            set 
+            set
             {
                 _DateOlderThanFilterHandler = value;
                 NotifyOfPropertyChange(() => DateNewerThanFilterHandler);
@@ -136,7 +131,7 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         public bool PriceMedianCheckbox
         {
             get { return _PriceMedianCheckbox; }
-            set 
+            set
             {
                 _PriceMedianCheckbox = value;
                 NotifyOfPropertyChange(() => PriceMedianCheckbox);
@@ -149,7 +144,8 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         public bool PriceBetweenCheckbox
         {
             get { return _PriceBetweenCheckbox; }
-            set { 
+            set
+            {
                 _PriceBetweenCheckbox = value;
                 NotifyOfPropertyChange(() => PriceBetweenCheckbox);
             }
@@ -158,8 +154,8 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         public bool PriceMoreThanCheckBox
         {
             get { return _PriceMoreThanCheckBox; }
-            set 
-            { 
+            set
+            {
                 _PriceMoreThanCheckBox = value;
                 NotifyOfPropertyChange(() => PriceMoreThanCheckBox);
             }
@@ -169,17 +165,17 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         public bool PriceLessThanCheckBox
         {
             get { return _PriceLessThanCheckBox; }
-            set 
-            { 
+            set
+            {
                 _PriceLessThanCheckBox = value;
-                NotifyOfPropertyChange(()=> PriceLessThanCheckBox);
+                NotifyOfPropertyChange(() => PriceLessThanCheckBox);
             }
         }
         private bool _DateBetweenCheckbox;
         public bool DateBetweenCheckbox
         {
             get { return _DateBetweenCheckbox; }
-            set 
+            set
             {
                 _DateBetweenCheckbox = value;
                 NotifyOfPropertyChange(() => DateBetweenCheckbox);
@@ -190,7 +186,7 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         public bool DateOlderThanCheckbox
         {
             get { return _DateOlderThanCheckbox; }
-            set 
+            set
             {
                 _DateOlderThanCheckbox = value;
                 NotifyOfPropertyChange(() => DateOlderThanCheckbox);
@@ -200,7 +196,7 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         public bool DateNewerThanCheckbox
         {
             get { return _DateNewerThanCheckbox; }
-            set 
+            set
             {
                 _DateNewerThanCheckbox = value;
                 NotifyOfPropertyChange(() => DateNewerThanCheckbox);
@@ -216,8 +212,9 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         public bool QualityTreeItemCheckbox
         {
             get { return _QualityTreeItemCheckbox; }
-            set { 
-                _QualityTreeItemCheckbox = value; 
+            set
+            {
+                _QualityTreeItemCheckbox = value;
                 NotifyOfPropertyChange(() => QualityTreeItemCheckbox);
             }
         }
@@ -273,7 +270,7 @@ namespace Kolekcionuojami_Daiktai.ViewModels
                 filters.Add(DateOlderThanFilterHandler);
 
             var selectedQualities = new List<QualityModel>();
-            foreach(var quality in Qualities)
+            foreach (var quality in Qualities)
             {
                 if (quality.Checked)
                     selectedQualities.Add(quality.Quality);
@@ -318,7 +315,7 @@ namespace Kolekcionuojami_Daiktai.ViewModels
         private float GetMedian(List<ItemModel> items)
         {
             float max = 0;
-            foreach(var item in items)
+            foreach (var item in items)
             {
                 max += item.EstimatedPrice;
             }

@@ -1,13 +1,6 @@
 ﻿using Caliburn.Micro;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
 using Kolekcionuojami_Daiktai.ViewModels;
+using System.Windows;
 
 namespace Kolekcionuojami_Daiktai
 {
@@ -17,7 +10,7 @@ namespace Kolekcionuojami_Daiktai
         public Bootstrapper()
         {
             Initialize();
-           
+
         }
         #endregion
 

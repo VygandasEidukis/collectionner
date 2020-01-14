@@ -1,11 +1,7 @@
 ﻿using DataHandlerLibrary.Collectionner.Filters.Quality;
 using DataHandlerLibrary.Collectionner.Logic;
 using DataHandlerLibrary.Collectionner.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataHandlerLibrary.Collectionner.Filters
 {
@@ -15,7 +11,7 @@ namespace DataHandlerLibrary.Collectionner.Filters
         {
             var items = new ItemReadLogic().ReadItems();
 
-            foreach(var filter in filters)
+            foreach (var filter in filters)
             {
                 items = filter.GetUnfilteredItems(items);
             }

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using Caliburn.Micro;
+﻿using Caliburn.Micro;
 using DataHandlerLibrary.Collectionner.Logic;
 using DataHandlerLibrary.Collectionner.Models;
+using System.Windows;
 
 namespace Kolekcionuojami_Daiktai.ViewModels
 {
@@ -19,8 +14,8 @@ namespace Kolekcionuojami_Daiktai.ViewModels
             get => _Item;
             set
             {
-                _Item = value; 
-                NotifyOfPropertyChange(()=>Item);
+                _Item = value;
+                NotifyOfPropertyChange(() => Item);
             }
         }
 
@@ -31,8 +26,8 @@ namespace Kolekcionuojami_Daiktai.ViewModels
             get => _Qualities;
             set
             {
-                _Qualities = value; 
-                NotifyOfPropertyChange(()=>Qualities);
+                _Qualities = value;
+                NotifyOfPropertyChange(() => Qualities);
             }
         }
 
@@ -44,7 +39,7 @@ namespace Kolekcionuojami_Daiktai.ViewModels
             set
             {
                 _SelectedQuality = value;
-                NotifyOfPropertyChange(()=>SelectedQuality);
+                NotifyOfPropertyChange(() => SelectedQuality);
             }
         }
 

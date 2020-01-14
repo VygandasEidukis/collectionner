@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using Caliburn.Micro;
+﻿using Caliburn.Micro;
 using DataHandlerLibrary.Collectionner.Logic;
 using DataHandlerLibrary.Collectionner.Models;
+using System.Collections.Generic;
 using Xamarin.Forms.Internals;
 
 namespace Kolekcionuojami_Daiktai.ViewModels
@@ -26,8 +19,8 @@ namespace Kolekcionuojami_Daiktai.ViewModels
             get => _Items;
             set
             {
-                _Items = value; 
-                NotifyOfPropertyChange(()=>Items);
+                _Items = value;
+                NotifyOfPropertyChange(() => Items);
             }
         }
 
@@ -38,7 +31,7 @@ namespace Kolekcionuojami_Daiktai.ViewModels
                 float total = 0;
                 Items?.ForEach(x => total += x.EstimatedPrice);
                 return total;
-            } 
+            }
         }
 
         public ItemsDisplayViewModel()

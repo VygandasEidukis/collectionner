@@ -1,15 +1,11 @@
-﻿using System;
+﻿using DataHandlerLibrary.Collectionner.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataHandlerLibrary.Collectionner.Models;
 
 namespace DataHandlerLibrary.Collectionner.Filters.Quality
 {
     public class QualityFilter : IQualityFilter
     {
-        public List<QualityModel> Qualities { get;set; }
+        public List<QualityModel> Qualities { get; set; }
 
         public List<ItemModel> GetUnfilteredItems(List<ItemModel> Items = null)
         {
@@ -26,7 +22,7 @@ namespace DataHandlerLibrary.Collectionner.Filters.Quality
                     itemsToRemove.Add(item);
             }
 
-            foreach(var item in itemsToRemove)
+            foreach (var item in itemsToRemove)
             {
                 Items.Remove(item);
             }

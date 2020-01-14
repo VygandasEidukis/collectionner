@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Caliburn.Micro;
+﻿using Caliburn.Micro;
 using DataHandlerLibrary.Collectionner.Models;
+using System.Collections.Generic;
 
 namespace Kolekcionuojami_Daiktai.ViewModels
 {
@@ -17,7 +13,7 @@ namespace Kolekcionuojami_Daiktai.ViewModels
             set
             {
                 _TotalPrice = value;
-                NotifyOfPropertyChange(()=>TotalPrice);
+                NotifyOfPropertyChange(() => TotalPrice);
             }
         }
 
